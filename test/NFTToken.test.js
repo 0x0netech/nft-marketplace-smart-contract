@@ -21,4 +21,14 @@ describe('NappyToken', function () {
 
     expect(await nftToken.name()).to.equal('NFTToken');
   });
+
+  it('Should mint the nft', async function () {
+    const NFTToken = await ethers.getContractFactory('NFTToken');
+    const nftToken = await NFTToken.deploy(
+      '0xd8b934580fce35a11b58c6d73adee468a2833fa8'
+    );
+    await nftToken.deployed();
+    let mint = await nftToken.createToken('https://www.json.com/jsef');
+    await mint.wait();
+  });
 });
