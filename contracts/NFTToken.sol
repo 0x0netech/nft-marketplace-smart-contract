@@ -13,7 +13,7 @@ contract NFTToken is ERC721URIStorage {
     Counters.Counter private _tokenIds;
     address contractAddress;
 
-    constructor(address NFTMarket) ERC721('NappyNFT' ,'NPFT') {
+    constructor(address NFTMarket) ERC721('NFTToken' ,'NPFT') {
         contractAddress = NFTMarket;
     }
 
