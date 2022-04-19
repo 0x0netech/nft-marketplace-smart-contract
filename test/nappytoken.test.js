@@ -7,7 +7,7 @@ describe('NappyToken', function () {
     const NappyToken = await ethers.getContractFactory('NappyToken');
     const initialSupply = BigNumber.from(1000000);
     const nappyToken = await NappyToken.deploy(initialSupply);
-    await nappyToken.deployed(initialSupply);
+    await nappyToken.deployed();
 
     expect(await nappyToken.symbol()).to.equal('NPT');
   });
