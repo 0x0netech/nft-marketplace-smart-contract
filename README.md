@@ -2,9 +2,6 @@
 
 NFT-MArketplace Smart Contract users can set royalty of NFT, buy with ERC20 token & 2.5% platform fees.
 
-- Buy with ERC20 Token
-- Publicsale Round
-
 ## Important Step
 
 ```bash
@@ -21,7 +18,8 @@ create .env file in root directory.
 -Get Your API Key
 
 - [Alchemy](https://alchemy.com/?r=36af7883c4699196)
-- Get Your Rinkeby Faucet
+
+-Get Your Rinkeby Faucet
 
 - [Rinkeby Faucet](https://faucets.chain.link/rinkeby)
 
@@ -84,6 +82,12 @@ Deploy on Rinkeby
 
 ```bash
   npx hardhat run scripts/deploy.js --network rinkeby
+```
+
+Verify Contract
+
+```bash
+npx hardhat verify --network rinkeby <YOUR_CONTRACT_ADDRESS>
 ```
 
 Help
