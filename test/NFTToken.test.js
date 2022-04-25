@@ -1,8 +1,8 @@
 const { expect } = require('chai');
 const { ethers } = require('hardhat');
 
-describe('NappyToken', function () {
-  it('Should return the correct symbol', async function () {
+describe('NappyToken', () => {
+  it('Should return the correct symbol', async () => {
     const NFTToken = await ethers.getContractFactory('NFTToken');
     const nftToken = await NFTToken.deploy(
       '0xd8b934580fce35a11b58c6d73adee468a2833fa8'
@@ -12,7 +12,7 @@ describe('NappyToken', function () {
     expect(await nftToken.symbol()).to.equal('NPFT');
   });
 
-  it('Should return the correct name', async function () {
+  it('Should return the correct name', async () => {
     const NFTToken = await ethers.getContractFactory('NFTToken');
     const nftToken = await NFTToken.deploy(
       '0xd8b934580fce35a11b58c6d73adee468a2833fa8'
@@ -22,7 +22,7 @@ describe('NappyToken', function () {
     expect(await nftToken.name()).to.equal('NFTToken');
   });
 
-  it('Should mint the nft', async function () {
+  it('Should mint the nft', async () => {
     const NFTToken = await ethers.getContractFactory('NFTToken');
     const nftToken = await NFTToken.deploy(
       '0xd8b934580fce35a11b58c6d73adee468a2833fa8'
