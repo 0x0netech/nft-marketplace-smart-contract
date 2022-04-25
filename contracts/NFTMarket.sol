@@ -27,7 +27,7 @@ contract NFTMarket {
         uint256 nftId;
         uint256 tokenId;
         uint256 price;
-        uint256 royality;
+        uint256 royalty;
         address payable seller;
         address payable owner;
         address nftContract;
@@ -36,9 +36,9 @@ contract NFTMarket {
 
     mapping(uint256 => NFTMarketItem) private marketItem;
 
-    function listNft(address nftContract,uint256 tokenId, uint256 price, uint256 royality) public  {
-        require(royality >= 0, 'royality should be between 0 to 30');
-        require(royality < 29, 'royality should be less than 30');
+    function listNft(address nftContract,uint256 tokenId, uint256 price, uint256 royalty) public  {
+        require(royalty >= 0, 'royalty should be between 0 to 30');
+        require(royalty < 29, 'royalty should be less than 30');
 
         _nftIds.increment();
         uint256 nftId = _nftIds.current();
@@ -47,7 +47,7 @@ contract NFTMarket {
             nftId,
             tokenId,
             price,
-            royality,
+            royalty,
             payable(msg.sender),
             payable(address(0)),
             nftContract,
@@ -58,7 +58,7 @@ contract NFTMarket {
 
     function buyNft(uint256 tokenId) public payable {
         uint256 price = marketItem[tokenId].price ;
-        uint256 royaltyPer = price * marketItem[tokenId].royality / deno;
+        uint256 royaltyPer = price * marketItem[tokenId].royalty / deno;
         uint256 marketFee = price * platformFee / deno;
 
         tokenAddress.transferFrom(msg.sender, address(this), price);
